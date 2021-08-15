@@ -13,7 +13,7 @@ class Film(models.Model):
         return self.film_name
 
 
-class Dictirbution(models.Model):
+class Dictribution(models.Model):
     send_time = models.DateTimeField(verbose_name='Время отправки')
     name = models.CharField(verbose_name='Название рассылки', max_length=200)
     is_send = models.BooleanField(verbose_name='Было отправлено?', default=False)
@@ -28,6 +28,19 @@ class Dictirbution(models.Model):
 
     def __str__(self):
         return self.name + ' ' + str(self.send_time.date())
+
+
+class Message(models.Model):
+    unique_name = models.CharField(
+        verbose_name='Уникальное название', max_length=200, unique=True)
+    text = models.TextField(verbose_name='Текст сообщения')
+
+    class Meta:
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
+
+    def __str__(self):
+        return self.unique_name + " " + self.text[:40]
 
 
 class Activity(models.Model):

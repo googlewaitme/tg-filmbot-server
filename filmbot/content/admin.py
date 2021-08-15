@@ -9,7 +9,7 @@ class FilmAdmin(admin.ModelAdmin):
     ordering = ('film_name', 'url')
 
 
-@admin.register(Dictirbution)
+@admin.register(Dictribution)
 class DictributionAdmin(admin.ModelAdmin):
     list_display = ('name', 'send_time', 'is_send')
     search_fields = ('name',)
@@ -22,3 +22,13 @@ class DictributionAdmin(admin.ModelAdmin):
             'fields': ('heading_text', 'main_text', 'content_url', 'button_url')
         })
     ]
+
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    def show_text(self, obj):
+        return obj.text[:30]
+
+    list_display = ('unique_name', 'show_text')
+    search_fields = ('unique_name', 'text')
+    ordering = ('unique_name',)
