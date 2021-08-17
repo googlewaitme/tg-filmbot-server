@@ -11,7 +11,7 @@ class DictributionSerializer(serializers.HyperlinkedModelSerializer):
 class FilmSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Film
-        fields = '__all__'
+        fields = ('film_name', 'url', 'id')
 
 
 class ActivitySerializer(serializers.HyperlinkedModelSerializer):

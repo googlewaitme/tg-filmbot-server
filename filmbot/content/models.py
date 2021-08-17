@@ -21,6 +21,7 @@ class Dictribution(models.Model):
     main_text = models.TextField(verbose_name='Текст')
     content_url = models.URLField(verbose_name='Ссылка на контент', null=True, blank=True)
     button_url = models.URLField(verbose_name='Ссылка кнопки', null=True, blank=True)
+    button_text = models.CharField(verbose_name='Текст кнопки', default='Нажми!', max_length=20)
 
     class Meta:
         verbose_name = 'Рассылка'

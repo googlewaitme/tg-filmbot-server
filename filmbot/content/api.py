@@ -1,12 +1,20 @@
 from rest_framework import viewsets
 from .serializers import *
 from .models import Dictribution, Film, Activity, Message
+from django.utils.timezone import now
 from fuzzywuzzy import process
 
 
 class DictributionViewSet(viewsets.ModelViewSet):
     queryset = Dictribution.objects.all()
     serializer_class = DictributionSerializer
+
+    def get_queryset(self):
+        query_params = self.request.query_params
+        to_send = query_params.get('to_send', None)
+        if to_send:
+            return Dictribution.objects.filter(is_send=False, send_time__lte=now())
+        return Dictribution.objects.all()  # .filter(is_send=False)
 
 
 class MessageViewSet(viewsets.ModelViewSet):

@@ -19,7 +19,9 @@ class DictributionAdmin(admin.ModelAdmin):
             'fields': ('name', 'send_time', 'is_send')
         }),
         ('Тело рассылки', {
-            'fields': ('heading_text', 'main_text', 'content_url', 'button_url')
+            'fields': (
+                'heading_text', 'main_text', 'content_url',
+                'button_url', 'button_text')
         })
     ]
 
