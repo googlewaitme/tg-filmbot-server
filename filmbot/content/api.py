@@ -3,6 +3,7 @@ from .serializers import *
 from .models import Dictribution, Film, Activity, Message
 from django.utils.timezone import now
 from fuzzywuzzy import process
+from django.db.models import F
 
 
 class DictributionViewSet(viewsets.ModelViewSet):
@@ -36,6 +37,13 @@ class MessageViewSet(viewsets.ModelViewSet):
 class ActivityViewSet(viewsets.ModelViewSet):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
+
+    def create(self, request, *args, **kwargs):
+        if request.data['activity_type'] == 'first_place_in_search':
+            film_id = request.data['element_unique_id']
+            Film.objects.filter(pk=film_id) \
+                .update(stat_count_first_places=F('stat_count_first_places') + 1)
+        return super().create(request, *args, **kwargs)
 
 
 class FilmViewSet(viewsets.ModelViewSet):
