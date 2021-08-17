@@ -4,6 +4,7 @@ from django.db import models
 class Film(models.Model):
     film_name = models.CharField(verbose_name='Название фильма', max_length=200)
     url = models.URLField(verbose_name='Ссылка на скачивание')
+    stat_count_first_places = models.PositiveIntegerField(default=0, editable=False)
 
     class Meta:
         verbose_name = 'Фильм'
