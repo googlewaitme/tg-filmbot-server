@@ -3,9 +3,9 @@ from .api import *
 
 
 router = routers.DefaultRouter()
-router.register('api/dictribution', DictributionViewSet, 'dictribution')
-router.register('api/film', FilmViewSet, 'film')
-router.register('api/activity', ActivityViewSet, 'activity')
-router.register('api/message', MessageViewSet, 'message')
+router.register('dictribution', DictributionViewSet, 'dictribution')
+router.register('film', FilmViewSet, 'film')
+router.register('activity', ActivityViewSet, 'activity')
+router.register('message', MessageViewSet, 'message')
 
 urlpatterns = router.urls
