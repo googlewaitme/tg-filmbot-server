@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+
+{% block title %}{{ object.film_name }}{% endblock %}
+
+{% block content%}
+
+<h3>{{ object.film_name }}</h3>
+<p>Ссылка на загрузку: {{ object.url }}</p>
+<p>Количество первых мест при поиске: {{ object.stat_count_first_places }}</p> 
+
+{% endblock %}

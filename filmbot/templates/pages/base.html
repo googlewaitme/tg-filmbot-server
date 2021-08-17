@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+ </head>
+ <body>
+  <div id="header"><h1>Байки из склепа</h1></div>
+  <div id="sidebar">
+    <p><a href="/film">Статистика по фильмам</a></p>
+    <p><a href="/user_stat">Статистика по пользователям</a></p>
+    <p><a href="/admin">Вход</a></p>
+  </div>
+  <div id="content">
+  	{% block content %}{% endblock %}
+  </div>
+  <div id="footer"><a href="https://t.me/googlewaitme">&copy; MANGUST/devgroup</a></div>
+ </body>
+</html>

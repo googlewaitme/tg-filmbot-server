@@ -1,0 +1,12 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Список фильмов{% endblock %}
+{% block content %}
+<ul>
+{% for film in object_list %}
+	<li><a href="/film/{{film.id}}">{{ film.stat_count_first_places }} {{ film.film_name }}</a></li>
+{% empty %}
+	<li>Пока не добавлен ни один фильм</li>
+{% endfor %}
+</ul>
+{% endblock %}
