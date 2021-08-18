@@ -1,0 +1,37 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content%}
+
+<h3>Статистика по боту</h3>
+
+<p>Всего пользователей за сутки: {{ all_users_day }}</p>
+<p>Всего пользователей за месяц: {{ all_users_month }}</p>
+
+<br>
+
+<p>Новых пользователей за сутки: {{ new_users_day }}</p>
+<p>Новых пользователей за месяц: {{ new_users_month }}</p>
+
+<br>
+
+<p>Новых сообщений за сутки: {{ all_messages_day }}</p>
+<p>Новых сообщений за месяц: {{ all_messages_month }}</p>
+
+<hr style="width: 100%; color: black; height: 2px; background-color:black;" />
+
+<h3>Форма для поиска</h3>
+
+<form action="" method="get">
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit" />
+</form>
+
+<p>Всего пользователей за период: {{ all_users_period }}</p>
+<p>Новых пользователей за период: {{ new_users_period }}</p>
+<p>Всего сообщений за период: {{ all_messages_period }}</p>
+
+{% endblock %}

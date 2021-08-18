@@ -32,3 +32,11 @@ h2 {
     color: #50026E; /* Цвет текста */
     clear: left; /* Отменяем действие float */
 }
+
+
+hr {
+    border: none;
+    background-color: lightcyan;
+    color: black;
+    height: 100px;
+}
